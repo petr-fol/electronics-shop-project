@@ -22,4 +22,3 @@ def test_calculate_total_price():
 def test_apply_discount():
     test_item.apply_discount()
     assert test_item.price == 1.0
-
