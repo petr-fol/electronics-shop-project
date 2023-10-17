@@ -48,8 +48,9 @@ class Item:
             self.__name = new_name[:10]
 
     @classmethod
-    def instantiate_from_csv(cls, shell):
-        with open(shell) as csv_f:
+    def instantiate_from_csv(cls, link):
+        Item.all = []
+        with open(link) as csv_f:
             csv_object = csv.DictReader(csv_f)
             list_items = []
             for row in csv_object:
@@ -70,5 +71,4 @@ class Item:
                 else:
                     break
             return int(int_num)
-        else:
-            return int(num_str)
+        return int(num_str)
