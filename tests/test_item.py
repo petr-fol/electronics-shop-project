@@ -74,5 +74,17 @@ def test_string_to_number():
     assert Item.string_to_number(num_str) == -42
 
 
+# Тесты для метода __str__
+def test_str_():
+    item = Item("Ноутбук", 1500.0, 5)
+    assert str(item) == "Item: Ноутбук, Price: 1500.0, Quantity: 5"
+
+
+# Тесты для метода __repr__
+def test_repr_():
+    item = Item("Ноутбук", 1500.0, 5)
+    assert repr(item) == "Item(name='Ноутбук', price=1500.0, quantity=5)"
+
+
 if __name__ == "__main__":
     pytest.main()
