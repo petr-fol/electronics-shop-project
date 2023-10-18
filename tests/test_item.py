@@ -41,7 +41,7 @@ def test_instantiate_from_csv():
 
     # assert len(items) == 3  # Проверяем количество созданных объектов Item
 
-    item1 = items[0]
+    item1 = Item.all[0]
     assert item1.name == "Смартфон"
     assert item1.price == 100.0
     assert item1.quantity == 1

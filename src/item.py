@@ -59,7 +59,6 @@ class Item:
                 quantity = row['quantity']
                 item = cls(name, float(price), int(quantity))
                 list_items.append(item)
-        return list_items
 
     @staticmethod
     def string_to_number(num_str):
