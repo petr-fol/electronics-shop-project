@@ -38,10 +38,20 @@ class Item:
 
     @property
     def name(self):
+        """
+        Возвращает название товара.
+
+        :return: Название товара.
+        """
         return self.__name
 
     @name.setter
     def name(self, new_name):
+        """
+        Устанавливает новое название товара.
+
+        :param new_name: Новое название товара.
+        """
         if 0 < len(new_name) < 10:
             self.__name = new_name
         else:
@@ -49,6 +59,11 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls, link):
+        """
+        Создает экземпляры класса Item на основе данных из CSV-файла.
+
+        :param link: Путь на CSV-файл с данными о товарах.
+        """
         Item.all = []
         with open(link) as csv_f:
             csv_object = csv.DictReader(csv_f)
@@ -62,6 +77,12 @@ class Item:
 
     @staticmethod
     def string_to_number(num_str):
+        """
+        Преобразует строку, содержащую число, в число int типа.
+
+        :param num_str: Строка, являющиеся числом.
+        :return: Число определенного типа.
+        """
         if "." in num_str:
             int_num = ''
             for i in num_str:
