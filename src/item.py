@@ -69,9 +69,9 @@ class Item:
             csv_object = csv.DictReader(csv_f)
             list_items = []
             for row in csv_object:
-                name = row['name']
-                price = row['price']
-                quantity = row['quantity']
+                name = row['name']           # str
+                price = row['price']         # str
+                quantity = row['quantity']   # str
                 item = cls(name, float(price), int(quantity))
                 list_items.append(item)
 
@@ -87,7 +87,7 @@ class Item:
             int_num = ''
             for i in num_str:
                 if i != ".":
-                   int_num += i
+                    int_num += i
                 else:
                     break
             return int(int_num)
