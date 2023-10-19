@@ -94,7 +94,7 @@ class Item:
         return int(num_str)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(name='{self.name}', price={self.price}, quantity={self.quantity})"
+        return f"{self.__class__.__name__}('{self.name}', {self.price},  {self.quantity})"
 
     def __str__(self):
-        return f"Item: {self.name}, Price: {self.price}, Quantity: {self.quantity}"
+        return self.name
