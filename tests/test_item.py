@@ -2,6 +2,7 @@
 import pytest
 
 from src.item import Item
+from src.phone import Phone
 
 test_item = Item("name", 1.0, 1)
 
@@ -37,7 +38,7 @@ def test_name_property():
 
 
 def test_instantiate_from_csv():
-    items = Item.instantiate_from_csv('../src/items.csv')
+    Item.instantiate_from_csv('../src/items.csv')
 
     # assert len(items) == 3  # Проверяем количество созданных объектов Item
 
@@ -86,5 +87,12 @@ def test_repr_():
     assert repr(item) == "Item(name='Ноутбук', price=1500.0, quantity=5)"
 
 
+def test_add_():
+    phone1 = Phone("iPhone 14", 120_000, 5, 2)
+    item1 = Item("Смартфон", 10000, 20)
+    assert item1 + phone1 == 25
+    assert phone1 + phone1 == 10
+
+    
 if __name__ == "__main__":
     pytest.main()
