@@ -102,5 +102,4 @@ class Item:
     def __add__(self, other) -> int:
         if isinstance(other, Item):
             return self.quantity + other.quantity
-        else:
-            return None
+        return None
