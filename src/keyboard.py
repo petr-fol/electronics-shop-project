@@ -24,5 +24,4 @@ class KeyboardMixin:
 class Keyboard(Item, KeyboardMixin):
     def __init__(self, name, price, quantity, language='EN'):
         super().__init__(name, price, quantity)
-        super(KeyboardMixin, self).__init__()
-        self.language = language
+        KeyboardMixin.__init__(self, language)
