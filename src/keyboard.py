@@ -13,6 +13,8 @@ class KeyboardMixin:
     def language(self, new_language):
         if new_language in ['EN', 'RU']:
             self._language = new_language
+        else:
+            raise AttributeError("property 'language' of 'Keyboard' object has no setter")
 
     def change_lang(self):
         if self.language == 'EN':
