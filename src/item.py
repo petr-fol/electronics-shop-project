@@ -58,12 +58,14 @@ class Item:
             self.__name = new_name[:10]
 
     @classmethod
-    def instantiate_from_csv(cls, link) -> None:
+    def instantiate_from_csv(cls, link="") -> None:
         """
         Создает экземпляры класса Item на основе данных из CSV-файла.
 
         :param link: Путь на CSV-файл с данными о товарах.
         """
+        if link == "":
+            raise FileNotFoundError("Отсутствует файл item.csv")
         Item.all = []
         with open(link) as csv_f:
             csv_object = csv.DictReader(csv_f)
