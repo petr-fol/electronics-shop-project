@@ -1,5 +1,7 @@
 import csv
 
+from src.exeptions import InstantiateCSVError
+
 
 class Item:
     """
@@ -68,12 +70,18 @@ class Item:
             raise FileNotFoundError("Отсутствует файл item.csv")
         Item.all = []
         with open(link) as csv_f:
+            lines = csv_f.readlines()
+            if lines[0] != "name,price,quantity\n":
+                raise InstantiateCSVError()
+
             csv_object = csv.DictReader(csv_f)
             list_items = []
             for row in csv_object:
-                name = row['name']           # str
-                price = row['price']         # str
-                quantity = row['quantity']   # str
+                name = row.get('name', '')  # Получить значение по ключу 'name' или пустую строку по умолчанию
+                price = row.get('price', '')  # Получить значение по ключу 'price' или пустую строку по умолчанию
+                quantity = row.get('quantity', '')  # Получить значение по ключу 'quantity'
+                                                    # или пустую строку по умолчанию
+
                 item = cls(name, float(price), int(quantity))
                 list_items.append(item)
 
@@ -101,7 +109,7 @@ class Item:
     def __str__(self) -> str:
         return self.name
 
-    def __add__(self, other) -> int:
+    def __add__(self, other):  # -> int
         if isinstance(other, Item):
             return self.quantity + other.quantity
         return None
